@@ -1,0 +1,203 @@
+﻿@{
+    List<Department> departments = (List<Department>)ViewData["Departments"];
+    List<Project> projects = (List<Project>)ViewData["Projects"];
+}
+<div class="update-container">
+
+    <div class="update-card">
+
+        <div class="title-section">
+            <h1>Update Employee</h1>
+            <p>Edit employee information</p>
+        </div>
+
+        <form asp-action="SaveUpdatedEmployee" asp-controller="Employee" method="post">
+
+            <div class="form-group">
+                <label>Employee ID</label>
+                <input type="number" value="@Model.Id" name="Id" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Employee Name</label>
+                <input type="text" value="@Model.Name" name="Name">
+            </div>
+
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" value="@Model.Age" name="Age">
+            </div>
+
+            <div class="form-group">
+                <label>Salary</label>
+                <input type="number" value="@Model.Salary" name="Salary">
+            </div>
+
+            <div class="form-group">
+                <label>Department</label>
+                <select name="Did">
+
+                    @foreach (var department in departments)
+                    {
+                        if (Model.Did == department.Id)
+                        {
+                            <option value="@department.Id" selected>
+                                @department.Name
+                            </option>
+                        }
+                        else
+                        {
+                            <option value="@department.Id">
+                                @department.Name
+                            </option>
+                        }
+                    }
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Project</label>
+                <select name="Pid">
+
+                    @foreach (var project in projects)
+                    {
+                        if (Model.Pid == project.Id)
+                        {
+                            <option value="@project.Id" selected>
+                                @project.Name
+                            </option>
+                        }
+                        else
+                        {
+                            <option value="@project.Id">
+                                @project.Name
+                            </option>
+                        }
+                    }
+
+                </select>
+            </div>
+
+            <div class="buttons">
+
+                <button type="submit" class="update-btn">
+                    Update Employee
+                </button>
+
+                <a href="/Employee/GoEmployeePage" type="reset" class="cancel-btn-outline">
+                    Cancel
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<style>
+    body {
+        background: #f4f7fc;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .update-container {
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+    }
+
+    .update-card {
+        width: 550px;
+        background: white;
+        border-radius: 25px;
+        padding: 35px;
+        box-shadow: 0 15px 40px rgba(0,0,0,.08);
+    }
+
+    .title-section {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .title-section h1 {
+        margin: 0;
+        color: #1e293b;
+    }
+
+    .title-section p {
+        color: #64748b;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #334155;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 14px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-size: 15px;
+        box-sizing: border-box;
+        transition: .3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: #4f46e5;
+        box-shadow: 0 0 12px rgba(79,70,229,.2);
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 25px;
+    }
+
+    .update-btn {
+        border: none;
+        padding: 14px 28px;
+        border-radius: 12px;
+        background: linear-gradient(135deg,#10b981,#059669);
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: .3s;
+        min-width: 200px;
+    }
+
+    .update-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(16,185,129,.3);
+    }
+
+    .cancel-btn-outline {
+        text-decoration: none;
+        padding: 12px 28px;
+        border: 2px solid #64748b;
+        border-radius: 12px;
+        color: #64748b;
+        font-weight: 600;
+        transition: .3s;
+        min-width: 120px;
+        text-align: center;
+    }
+
+    .cancel-btn-outline:hover {
+        background: #64748b;
+        color: white;
+    }
+</style>

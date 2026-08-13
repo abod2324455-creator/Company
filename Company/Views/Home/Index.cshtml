@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Your Company</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">🏢 Manage Your Company</div>
+
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="/Employee/GoEmployeePage">Employees</a></li>
+                <li><a href="/Project/GoProjectPage">Projects</a></li>
+                <li><a href="/Department/GoDepartmentPage">Departments</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Manage Your Company</h1>
+
+        <p>
+            Simplify employee, project, and department management
+            in one modern platform.
+        </p>
+
+        <a href="#cards" class="hero-btn">Explore Dashboard</a>
+    </section>
+
+    <section class="cards-section" id="cards">
+
+        <div class="card">
+            <div class="icon">👨‍💼</div>
+
+            <h2>Employees</h2>
+
+            <p>
+                Manage employee records, salaries,
+                contact information and assignments.
+            </p>
+
+            <a href="/Employee/GoEmployeePage" class="card-btn">
+                View Employees
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="icon">📊</div>
+
+            <h2>Projects</h2>
+
+            <p>
+                Track projects and assign employees
+                efficiently across teams.
+            </p>
+
+            <a href="/Project/GoProjectPage" class="card-btn">
+                View Projects
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏢</div>
+
+            <h2>Departments</h2>
+
+            <p>
+                Organize company departments and
+                improve team structure.
+            </p>
+
+            <a href="/Department/GoDepartmentPage" class="card-btn">
+                View Departments
+            </a>
+        </div>
+
+    </section>
+
+    <section class="features">
+
+        <h2>Why Choose Us?</h2>
+
+        <div class="feature-list">
+            <div>✓ Employee Management</div>
+            <div>✓ Project Tracking</div>
+            <div>✓ Department Organization</div>
+            <div>✓ Modern Dashboard</div>
+            <div>✓ Easy To Use</div>
+        </div>
+
+    </section>
+
+    <footer>
+        <h3>Manage Your Company</h3>
+
+        <p>
+            Empowering businesses through smarter management.
+        </p>
+
+        <span>© 2026 All Rights Reserved</span>
+    </footer>
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI',sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        background: radial-gradient( circle at top left, #DBEAFE, #F8FAFC 40% );
+        color: #1E293B;
+    }
+
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 10%;
+        background: white;
+        box-shadow: 0 4px 20px rgba(0,0,0,.08);
+        position: sticky;
+        top: 0;
+    }
+
+    .logo {
+        font-size: 28px;
+        font-weight: 700;
+        color: #2563EB;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #334155;
+        font-weight: 500;
+        transition: .3s;
+    }
+
+    .nav-links a:hover {
+        color: #2563EB;
+    }
+
+
+    .hero {
+        text-align: center;
+        padding: 120px 20px;
+    }
+
+    .hero h1 {
+        font-size: 72px;
+        font-weight: 700;
+        color: #0F172A;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        max-width: 750px;
+        margin: auto;
+        font-size: 22px;
+        line-height: 1.8;
+        color: #64748B;
+    }
+
+    .hero-btn {
+        display: inline-block;
+        margin-top: 40px;
+        padding: 15px 35px;
+        text-decoration: none;
+        background: #2563EB;
+        color: white;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .hero-btn:hover {
+        background: #1D4ED8;
+        transform: scale(1.05);
+    }
+
+
+    .cards-section {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        padding: 40px 0 80px;
+    }
+
+    .card {
+        width: 350px;
+        background: white;
+        padding: 35px;
+        text-align: center;
+        border-radius: 24px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.08);
+        transition: .35s;
+    }
+
+    .card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 18px 40px rgba(37,99,235,.18);
+    }
+
+    .icon {
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    .card h2 {
+        margin-bottom: 15px;
+        color: #0F172A;
+    }
+
+    .card p {
+        color: #64748B;
+        line-height: 1.8;
+    }
+
+    .card-btn {
+        display: inline-block;
+        margin-top: 25px;
+        text-decoration: none;
+        background: #2563EB;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .card-btn:hover {
+        background: #1D4ED8;
+    }
+
+
+    .features {
+        text-align: center;
+        padding: 80px 20px;
+    }
+
+    .features h2 {
+        font-size: 42px;
+        color: #0F172A;
+        margin-bottom: 40px;
+    }
+
+    .feature-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .feature-list div {
+        background: white;
+        padding: 15px 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,.06);
+        color: #334155;
+        font-weight: 500;
+    }
+
+
+    footer {
+        text-align: center;
+        margin-top: 80px;
+        padding: 40px;
+        background: white;
+        box-shadow: 0 -4px 15px rgba(0,0,0,.05);
+    }
+
+    footer h3 {
+        color: #2563EB;
+        margin-bottom: 10px;
+    }
+
+    footer p {
+        color: #64748B;
+        margin-bottom: 10px;
+    }
+
+    footer span {
+        color: #94A3B8;
+    }
+</style>
+</body>
+</html>

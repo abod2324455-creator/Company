@@ -1,0 +1,200 @@
+﻿@{
+    List<Department> departments = Model.departments;
+    List<Project> projects = Model.projects;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Your Company</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo">🏢 Manage Your Company</div>
+
+        <ul class="nav-links">
+            <li><a href="/Home/Index">Home</a></li>
+            <li><a href="/Employee/GoEmployeePage">Employees</a></li>
+            <li><a href="/Project/GoProjectPage">Projects</a></li>
+            <li><a href="/Department/GoDepartmentPage">Departments</a></li>
+        </ul>
+    </nav>
+</header>
+    <div class="employees-page">
+
+        <div class="page-header">
+            <h1>Employees Management</h1>
+
+            <a href="/Employee/AddEmployee" class="add-btn">
+                + Add Employee
+            </a>
+        </div>
+    <div class="employee-container">
+
+        @foreach (var employee in Model.employees)
+        {
+            var department = departments.FirstOrDefault(d => d.Id == employee.Did);
+            var project = projects.FirstOrDefault(p => p.Id == employee.Pid);
+
+
+            <div class="employee-card">
+
+                <div class="employee-icon">
+                    👨‍💼
+                </div>
+
+                <h2>@employee.Name</h2>
+
+                <p><strong>Age :</strong> @employee.Age</p>
+
+                <p><strong>Salary :</strong> @employee.Salary</p>
+
+                <p><strong>Department :</strong> @department.Name</p>
+
+                <p><strong>Project :</strong> @project.Name</p>
+
+                <div class="card-actions">
+
+                    <a href="/Employee/EditEmployee/@employee.Id" class="edit-btn">
+                        Edit
+                    </a>
+
+                    <a href="/Employee/DeleteEmployee/@employee.Id" class="delete-btn">
+                        Delete
+                    </a>
+
+                </div>
+
+            </div>
+        }
+        </div>
+    </div>
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI',sans-serif;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 10%;
+        background: white;
+        box-shadow: 0 4px 20px rgba(0,0,0,.08);
+        position: sticky;
+        top: 0;
+    }
+
+    .logo {
+        font-size: 28px;
+        font-weight: 700;
+        color: #2563EB;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #334155;
+        font-weight: 500;
+        transition: .3s;
+    }
+
+    .nav-links a:hover {
+        color: #2563EB;
+    }
+
+    .employees-page {
+        width: 90%;
+        margin: 40px auto;
+    }
+
+    .add-btn {
+        text-decoration: none;
+        background: #2563eb;
+        color: white;
+        padding: 14px 24px;
+        border-radius: 12px;
+        font-weight: bold;
+        transition: .3s;
+    }
+
+    .add-btn:hover {
+        background: #1d4ed8;
+    }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    .employee-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+        gap: 25px;
+    }
+
+    .employee-card {
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,.08);
+        transition: .3s;
+    }
+
+    .employee-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(37,99,235,.15);
+    }
+
+    .employee-icon {
+        font-size: 50px;
+        margin-bottom: 15px;
+    }
+
+    .employee-card h2 {
+        margin-bottom: 15px;
+        color: #0f172a;
+    }
+
+    .employee-card p {
+        margin-bottom: 10px;
+        color: #475569;
+    }
+
+    .card-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .card-actions a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+
+    .edit-btn {
+        background: #10b981;
+    }
+
+    .delete-btn {
+        background: #ef4444;
+    }
+</style>
+</body>
+</html>
